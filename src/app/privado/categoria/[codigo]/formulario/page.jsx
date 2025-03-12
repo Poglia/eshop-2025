@@ -66,7 +66,7 @@ const FormularioPage = async ({ params }) => {
                     </div>
                 </div>
             </form>
-            </Suspense>
+            </Suspense>g
         </div>
     )
 };
