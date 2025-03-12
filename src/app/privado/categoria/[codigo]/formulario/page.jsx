@@ -1,6 +1,8 @@
 import { notFound, redirect } from 'next/navigation';
 import { getCategoriaPorCodigoDB, updateCategoriaDB, addCategoriaDB } from '@/bd/usecases/categoriaUseCases';
 import CampoEntradaFloating from '@/components/comuns/CampoEntradaFloating';
+import { Suspense } from 'react';
+import Loading from '@/componentes/comuns/Loading';
 
 
 const FormularioPage = async ({ params }) => {
@@ -38,9 +40,12 @@ const FormularioPage = async ({ params }) => {
 
     return (
         <div>
+            <Suspense fallback={<Loading />}>
+            conteudo do componente
             <div style={{ textAlign: 'center' }}>
                 <h2>Categoria</h2>
             </div>
+            
             <form action={salvarCategoria} >
                 <div className="container">
                     <div className="row justify-content-center">
@@ -61,6 +66,7 @@ const FormularioPage = async ({ params }) => {
                     </div>
                 </div>
             </form>
+            </Suspense>
         </div>
     )
 };
